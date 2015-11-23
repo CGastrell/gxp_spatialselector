@@ -17,7 +17,7 @@ Includes two icons for the UI buttons, you'll have to place them wherever you st
 Note: mind the paths to the images please.
 
 ## Setup
-Invoque like any other GXP plugin within the tools of your app (default values below):
+Invoke like any other GXP plugin within the tools of your app (default values below):
 ```javascript
 tools: [
   {
