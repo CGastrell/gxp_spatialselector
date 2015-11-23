@@ -71,7 +71,7 @@ Shall you need more control over the callbacks, the events on the control are `b
 
 Note: coordinates and units will be in displayed projection units, you'll have to convert/transform to whatever you need otherwise
 
-### bufferCallback
+### polygonCallback
   * event.polygon: raw feature of the drawn polygon
 
 ## Example
