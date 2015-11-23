@@ -30,6 +30,14 @@ tools: [
       bufferCallback: function(evt){console.log(evt)},
       polygonCallback: function(evt){console.log(evt)}
     },
+    polygonSymbolizer: {
+      strokeWidth: 2,
+      strokeOpacity: 1,
+      strokeColor: "#666666",
+      fillColor: "white",
+      fillOpacity: 0.3,
+      strokeDashstyle: "dash"
+    },
     showButtonText: true, //<- inherited from Tool Class
     actionTarget: "map.tbar", //<- not default, just example
     toggleGroup: "tools" ////<- not default, just example
@@ -48,6 +56,7 @@ tools: [
   * controlOptions *{Object}*:
     * bufferCallback(evt) *{Function}*: callback function to execute on buffer draw
     * polygonCallback(evt) *{Function}*: callback function to execute on polygon draw (ended with double click on the last vertex)
+  * polygonSymbolizer *{Object}*: a CSS symbolizer for the OpenLayers.Control.DrawFeature control behind the plugin
 
 ## Callbacks
 Both callbacks receive an Event object. Event object carries data according to spatial select operation.
