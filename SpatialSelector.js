@@ -192,15 +192,14 @@ gxp.plugins.SpatialSelector = Ext.extend(gxp.plugins.Tool, {
       control = new OpenLayers.Control.DrawFeature(layer, OpenLayers.Handler.RegularPolygon, polyOptions);
       control.events.register('buffer', control, controlOptions.bufferCallback);
 
+      var projection = this.target.mapPanel.map.projection;
       layer.events.register("featureadded", control, function(evt) {
 
         var center = evt.feature.geometry.getCentroid();
-        var bounds = evt.feature.geometry.getBounds();
-        var vertices = evt.feature.geometry.getVertices();
 
-        // since we're drawing a circle, any vertex should have the same
-        // distance to the center
-        var distance = center.distanceTo(vertices[0]);
+        var l = new OpenLayers.Geometry.LineString([evt.feature.geometry.getCentroid(),evt.feature.geometry.getVertices()[0]]);
+        var distance = l.getGeodesicLength(projection);
+
         this.events.triggerEvent("buffer", {
           center : center,
           distance: distance,
